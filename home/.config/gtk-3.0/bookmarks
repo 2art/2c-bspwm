@@ -1,0 +1,19 @@
+file:///mnt /mnt
+file:///mnt/wb /mnt/wb
+file:///mnt/ws /mnt/ws
+file:///home/dxo/.config ~/.config
+file:///home/dxo/.2c ~/.2c
+file:///home/dxo/.2c/bspwm 2c-bspwm
+file:///home/dxo/.2c/misc 2c-misc
+file:///home/dxo/.2c/shconfig 2c-shconfig
+file:///home/dxo/.2c/shextras 2c-shextras
+file:///home/dxo/.2c/userconfig 2c-userconfig
+file:///home/dxo/.2c/sysconfig 2c-sysconfig
+file:///home/dxo/.src .src
+file:///home/dxo/.src/repos .src/repos
+file:///home/dxo/Documents
+file:///home/dxo/Downloads
+file:///home/dxo/Music
+file:///home/dxo/Pictures
+file:///home/dxo/Videos
+file:///home/dxo/Applications
