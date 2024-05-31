@@ -1,0 +1,17 @@
+# This file is written by xdg-user-dirs-update
+# If you want to change or add directories, just edit the line you're
+# interested in. All local changes will be retained on the next run.
+# Format is XDG_xxx_DIR="$HOME/yyy", where yyy is a shell-escaped
+# homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
+# absolute path. No other format is supported.
+#
+XDG_DESKTOP_DIR="/mnt/ws/.libs/Desktop"
+XDG_DOWNLOAD_DIR="/mnt/ws/.libs/Downloads"
+XDG_TEMPLATES_DIR="/mnt/ws/.libs/Templates"
+XDG_PUBLICSHARE_DIR="/mnt/ws/.libs/Public"
+XDG_DOCUMENTS_DIR="/mnt/ws/.libs/Documents"
+XDG_MUSIC_DIR="/mnt/ws/.libs/Music"
+XDG_PICTURES_DIR="/mnt/ws/.libs/Pictures"
+XDG_VIDEOS_DIR="/mnt/ws/.libs/Videos"
+XDG_APPLICATIONS_DIR="/mnt/ws/.libs/Applications"
+XDG_WORKSPACE_DIR="$HOME/.src"
