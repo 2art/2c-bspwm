@@ -3,16 +3,16 @@
 This repository contains my ([2art](mailto:2art@pm.me)) personal desktop configuration on Arch Linux, for the [Bspwm window manager](https://github.com/baskerville/bspwm). This theme configuration uses and configures the following default applications:
 
 - Window Manager: **Bspwm**
-- Keyboard Shortcuts Daemon: **Sxhkd**
-- Terminal Emulator: **Alacritty**
 - Compositor: **Picom**
-- Top Bar: **Polybar**
 - Notification Daemon: **Dunst**
 - App Launcher/Switcher: **Rofi**
-- Windows: **GTK 4.0/3.0**
 - File Manager: **Thunar**
-- Image Viewer: **Viewnior**
-- GUI Text Editor: **Mousepad**
+- Web Browser: **LibreWolf**
+- Keyboard Shortcuts: **Sxhkd**, **Xorg-Xmodmap**
+- Terminal Emulator: **Alacritty**
+- Top Bar: **Polybar**
+- Editors: **Nano**, **Mousepad**
+- Media: **Mpv**, **Viewnior**, **Feh**
 
 Configs and default apps that are used are updated as this project develops; For example, terminal editor (nvim) config is not included yet, although it may get it's own repository instead.
 
