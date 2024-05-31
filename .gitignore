@@ -1,9 +1,6 @@
 # VSCodium workspace configuration files
 /.vscode/
 
-# Local temporary/generated files
-/.local/
-
 # Temporary/backup files
 *.*~
 
