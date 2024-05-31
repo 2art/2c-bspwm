@@ -1,9 +1,15 @@
 # VSCodium workspace configuration files
 /.vscode/
 
-# Temporary/backup files
-*.*~
+# Data for various things, such as generating nano-syntax-highlighting highlight
+# temporary files before updating the main includes file 'nanorc'.
+/.data/
+.tmp/
 
 # Log files
+.logs/
 logs/
 *.log
+
+# Temporary/backup files
+*.*~
