@@ -1,0 +1,34 @@
+KEY(S)    ALTGR     SHIFT     NONE      REPLACED                COMMENTS
+W         Up                            schwa eth ssharp?       Ctrl+ for fast movement doesn't work.
+A         ?                             schwa eth ssharp?
+S         Down                          schwa eth ssharp?       Ctrl+ for fast movement doesn't work.
+D         $                             schwa eth ssharp?       
+Q         (
+C         )
+E         [                             eurosign
+R         ]
+Z         {                             ezh
+X         }                             multiply
+V         %                             (multiply)             Either this, or above, replaced multiply. Not sure.
+F         /
+3         &                             sterling
++         +                   \                                Swapped + and \ so that + is altgr and \ is no modifier
+Å         Home                End       aring dead_doubleacute Cant bind Shift, Home/End override.
+^                   ^         _         dead_circumflex ^, dead_diaeresis ¨ -- Between Å and Return (Enter).
+´         ´                   ;         dead_cedilla ¸         Moved dead_acute to altgr. Between + and backspace
+Ö         ö                   -         oslash ø               Easier dash (minus) for typing
+Ä         ä                   /         ae æ                   Easier slash
+,         @                             rightsinglequotemark ’
+.         %                             dead_belowdot  ̣
+Space                                   nobreakspace           Removed altgr special character that caused problems.
+N                                       eng                    Removed altgr special character that caused problems.
+'                                       dead_caron             Removed altgr special character that caused problems.
+-                                       endash                 Removed altgr special character that caused problems.
+§                             /         section §
+G         €
+O         —                             oe                     emdash, for Better Colors highlighting
+
+To reset to original .Xmodmap (based on used settings, e.g. fi nodeadkeys):
+´setxkbmap -option´
+Then export it:
+´xmodmap -pke >> .Xmodmap´
