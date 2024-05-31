@@ -18,7 +18,7 @@ Configs and default apps that are used are updated as this project develops; For
 
 ## Script for Setting Up Repository
 
-### Setup sym-links:
+### Setup sym-links
 
 ```bash
 # First, find symlinks in home directory that are broken and delete any. Ask the
