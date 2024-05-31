@@ -1,0 +1,69 @@
+# show ssh sesssions (rofi)
+super + alt + less
+rofi -modi drun -show ssh -line-padding 4 \
+ -columns 2 -padding 50 -hide-scrollbar -terminal alacritty \
+ -show-icons -drun-icon-theme "Arc-X-D" -font "Droid Sans Regular 10"
+
+# Nice rofi menu for screenshot type, but not required.
+super + Print
+~/.config/bspwm/scripts/screenshot.sh
+
+# increase volume by 2%
+XF86AudioRaiseVolume
+  amixer -q -D pulse set Master 2%+ unmute
+# decrease volume by 2%
+XF86AudioLowerVolume
+  amixer -q -D pulse set Master 2%- unmute
+# toggle volume mute
+XF86AudioMute
+  amixer -q -D pulse sset Master toggle-mute
+
+super + ctrl + space
+  bspc node -p cancel
+
+
+################################################################################
+## Disabled Bindings From EndeavourOS
+################################################################################
+
+# send the newest marked node to the newest preselected node
+#super + y
+# bspc node newest.marked.local -n newest.!automatic.local
+
+# swap the current node and the biggest window
+#super + g
+# bspc node -s biggest.window
+
+# set the window state
+#super + {t,shift + t,s,f}
+# bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+# set the node flags
+#super + ctrl + {m,x,y,z}
+# bspc node -g {marked,locked,sticky,private}
+
+# focus the node for the given path jump
+#super + {p,b,comma,period}
+# bspc node -f @{parent,brother,first,second}
+
+# focus the older or newer node in the focus history
+#super + {o,i}
+# bspc wm -h off; \
+# bspc node {older,newer} -f; \
+# bspc wm -h on
+
+# preselect the ratio
+#super + ctrl + {1-9}
+# bspc node -o 0.{1-9}
+
+# move a floating window
+#super + {Left,Down,Up,Right}
+# bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Brightness up
+#XF86MonBrightnessUp
+#  xbacklight -inc 5
+
+# And brightness down
+#XF86MonBrightnessDown
+#  xbacklight -dec 5
