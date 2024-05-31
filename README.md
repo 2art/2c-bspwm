@@ -23,7 +23,7 @@ Configs and default apps that are used are updated as this project develops; For
 ```bash
 # First, find symlinks in home directory that are broken and delete any. Ask the
 # user before deleting any to confirm.
-broken_symlinks=( $(find ~ -type l -xtype l -and \( -not -path "*dxo.profile*/*" -and -not -ipath "*/Steam*" -and -not -path "*.steam*" \) -print) )
+broken_symlinks=( $(find ~ -type l -xtype l -and \( -not -path "*dxo.profile*/*" -and -not -ipath "*/Steam*" -and -not -path "*.steam*" -and -not -path "*/systemd* \) -print) )
 if (( $#broken_symlinks > 0 )); then
   printf '\e[34;1mFound following broken symlinks from home directory:\n\e[22;33m'
   for d in "${broken_symlinks[@]}"; do echo $d; done
@@ -36,7 +36,7 @@ if (( $#broken_symlinks > 0 )); then
 fi
 
 # Find directories to be symlinked; Process each one by one, to see if the symlink is missing so far.
-find /home/dxo/.2c/bspwm/home/.config/* -maxdepth 0 -type d -not -path '*/.git/*' | while read f; do
+find /home/dxo/.2c/bspwm/home/.config/* -maxdepth 0 -type d -not -path '*/.git/*' -and -not -path "*/systemd*" | while read f; do
   tgt="/home/dxo/.config/${f##*.config/}"
   if [[ ! -h "$tgt" ]]; then
         printf '\e[32;1mCreating symlink: %s\n\e[33;22m' "${tgt}"
