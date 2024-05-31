@@ -51,6 +51,7 @@ done
 - Theme: [xfce-simple-dark](https://github.com/simonkrauter/Xfce-Simple-Dark) (included in pacman command lines below)
 - Icons: [candy-icons-git](https://github.com/EliverLara/candy-icons) (included in pacman command lines below)
 - Fonts: Mainly 'EnvyCodeR Nerd Font'
+- Cursors: [xcursor-menda-git](https://aur.archlinux.org/packages/xcursor-menda-git)
 
   > Clone [NerdFonts](https://github.com/ryanoasis/nerd-fonts) with `git clone --depth 1 https://github.com/ryanoasis/nerd-fonts` and follow the installation instructions in `README.md`.
 
@@ -61,7 +62,7 @@ done
 ```bash
 # Required packages
 sudo pacman -Syu --needed bspwm picom dunst rofi thunar sxhkd xorg-xmodmap alacritty polybar nano mousepad mpv viewnior feh lxappearance-gtk3
-yay -Syu --needed librewolf-bin xfce-simple-dark candy-icons-git
+yay -Syu --needed librewolf-bin xfce-simple-dark candy-icons-git xcursor-menda-git
 
 # Optional Applications:
 sudo pacman -Syu thunar-volman thunar-media-tags-plugin thunar-archive-plugin ttf-envycoder-nerd bat
