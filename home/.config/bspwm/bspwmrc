@@ -1,0 +1,244 @@
+#!/bin/zsh
+
+##==================================================================================================
+##== 2C BSPWM Environment (Default)
+##
+## Includes configs for Rofi and Polybar, and keybindings for SXHKD.
+##
+## TODO: Explanation about the selector logic will be here later. An in-depth notecategory about all
+##       of it will be created during that, so see it for more information (about initially unclear
+##       things in the manpages).
+##==================================================================================================
+
+##======== Monitor & Wallpaper Setup ===============================================================
+#region Monitor & Wallpaper Setup
+
+# Load xrandr, polybar and feh wallpapers with present monitors, as declared
+# above. This script checks that the monitors specified are connected aswell.
+mon_middle=$([[ -n ${CMONITORS[middle]} ]] && xrandr | pcre2grep -m1 -o1 '^('${CMONITORS[middle]%%:*}') connected')
+mon_left=$([[ -n ${CMONITORS[left]} ]] && xrandr | pcre2grep -m1 -o1 '^('${CMONITORS[left]%%:*}') connected')
+mon_right=$([[ -n ${CMONITORS[right]} ]] && xrandr | pcre2grep -m1 -o1 '^('${CMONITORS[right]%%:*}') connected')
+
+if [ -n "$mon_middle" ]; then
+  mon_middle_mode=$(echo ${CMONITORS[middle]} | cut -d':' -f2)
+  mon_middle_bg=$(echo ${CMONITORS[middle]} | cut -d':' -f3)
+  if [ -n "$mon_left" ]; then
+    mon_left_mode=$(echo ${CMONITORS[left]} | cut -d':' -f2)
+    mon_left_bg=$(echo ${CMONITORS[left]} | cut -d':' -f3)
+    if [ -n "$mon_right" ]; then
+      mon_right_mode=$(echo ${CMONITORS[right]} | cut -d':' -f2)
+      mon_right_bg=$(echo ${CMONITORS[right]} | cut -d':' -f3)
+      xrandr --output "$mon_middle" --primary --mode $mon_middle_mode --output "$mon_left" --mode $mon_left_mode --left-of "$mon_middle" --output "$mon_right" --mode $mon_right_mode --right-of "$mon_middle"
+      bspc monitor "$mon_middle" -d A S D Z X C
+      bspc monitor "$mon_left" -d CA CS CD CZ CX CC
+      bspc monitor "$mon_right" -d SA SS SD SZ SX SC
+      MONCOUNT=3
+      MON1=$mon_middle
+      MON2=$mon_left
+      MON3=$mon_right
+      feh --bg-center "$mon_left_bg" "$mon_middle_bg" "$mon_right_bg" &
+      dunstify -u normal -t 8000 "$(printf 'Monitors:\n(Left) %s @%s - %s\n(Middle) %s @%s - %s\n(Right) %s @%s - %s\n' $mon_left $mon_left_mode $mon_left_bg $mon_middle $mon_middle_mode $mon_middle_bg $mon_right $mon_right_mode $mon_right_bg)"
+    else
+      xrandr --output "$mon_middle" --primary --mode $mon_middle_mode --output "$mon_left" --mode $mon_left_mode --left-of "$mon_middle"
+      bspc monitor "$mon_middle" -d A S D Z X C
+      bspc monitor "$mon_left" -d CA CS CD CZ CX CC
+      MONCOUNT=2
+      MON1=$mon_middle
+      MON2=$mon_left
+      feh --bg-center "$mon_left_bg" "$mon_middle_bg" &
+      dunstify -u normal -t 8000 "$(printf 'Monitors:\n(Left) %s @%s - %s\n(Middle) %s @%s - %s\n' $mon_left $mon_left_mode $mon_left_bg $mon_middle $mon_middle_mode $mon_middle_bg)"
+    fi
+  elif [ -n "$mon_right" ]; then
+    mon_right_mode=$(echo ${CMONITORS[right]} | cut -d':' -f2)
+    mon_right_bg=$(echo ${CMONITORS[right]} | cut -d':' -f3)
+    xrandr --output $mon_middle --primary --mode $mon_middle_mode --output $mon_right --mode $mon_right_mode --right-of $mon_middle
+    bspc monitor $mon_middle -d A S D Z X C
+    bspc monitor $mon_right -d SA SS SD SZ SX SC
+    MONCOUNT=2
+    MON1=$mon_middle
+    MON2=$mon_right
+    feh --bg-center "$mon_middle_bg" "$mon_right_bg" &
+    dunstify -u normal -t 8000 "$(printf 'Monitors:\n(Middle) %s @%s - %s\n(Right) %s @%s - %s\n' $mon_middle $mon_middle_mode $mon_middle_bg $mon_right $mon_right_mode $mon_right_bg)"
+  else
+    xrandr --output "$mon_middle" --primary --mode $mon_middle_mode
+    bspc monitor "$mon_middle" -d A S D Z X C
+    MONCOUNT=1
+    MON1=$mon_middle
+    feh --bg-center "$mon_middle_bg" &
+    dunstify -u normal -t 8000 "$(printf 'Monitors:\n(Middle) %s @%s - %s' $mon_middle $mon_middle_mode $mon_middle_bg)"
+  fi
+else
+  dunstify -u critical -t 16000 "$(printf 'Xrandr Error in bspwmrc!\n\nUnable to setup layout:\nNo connected monitors detected!\n')"
+  return 1
+fi
+
+#endregion
+
+##======== BSPC Configs ============================================================================
+#region BSPC Configs
+
+# Windows
+bspc config border_width 1
+bspc config window_gap 19
+bspc config top_padding 58
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config bottom_padding 0
+bspc config split_ratio 0.55
+
+# Colors
+bspc config focused_border_color "#80a8fd" # Prev: "#6c71c4"
+bspc config normal_border_color "#32344a" # Prev: "#073642"
+bspc config active_border_color "#444b6a" # Prev: "#073642"
+
+# Focus Config
+bspc config focus_follows_pointer true    # Whether to focus the window under the pointer.
+bspc config pointer_follows_monitor true  # When focusing a monitor, whether put the pointer at its center.
+bspc config pointer_follows_focus false   # When focusing a window, whether to put the pointer at its center.
+bspc config ignore_emwh_focus true
+
+# Monocle Layout Config
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config single_monocle false
+
+# MOD key control
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_corner
+
+#endregion
+
+##======== BSPC Rules ==============================================================================
+#region BSPC Rules: Workspaces
+
+## General options for ´bspc´ Rules:
+##   state={floating,fullscreen,pseudo_tiled,tiled}
+##   follow={on,off} focus={on,off} desktop='^X'
+##
+## Full options for ´bspc´ Rules:
+## -a|--add     (<class_name>|*)[:(<instance_name>|*)[:(<name>|*)]] [-o|--one-shot]
+##              [monitor=MONITOR_SEL|desktop=DESKTOP_SEL|node=NODE_SEL] [state=STATE]
+##              [layer=LAYER] [split_dir=DIR] [split_ratio=RATIO]
+##              [(hidden|sticky|private|locked|marked|center|follow|manage|focus|border)=(on|off)]
+##              [rectangle=WxH+X+Y]
+## -r|--remove  ^<n>|head|tail|(<class_name>|*)[:(<instance_name>|*)[:(<name>|\*)]]...
+## -l|--list    List the rules.
+
+# Internet Browser
+#declare -a _web=(LibreWolf)
+#for i in "${_web[@]}"; do bspc rule -a "$i" follow=on focus=on state=tiled; done
+
+# Editors
+#declare -a work=(Mousepad VSCodium)
+#for i in "${work[@]}"; do bspc rule -a "$i" follow=on focus=on state=tiled; done
+
+# File Managers
+#declare -a _files=(Thunar)
+#for i in "${_files[@]}"; do	bspc rule -a "$i" follow=on focus=on state=tiled; done
+#bspc rule -a "Thunar:Properties" follow=on focus=on state=floating center=true
+
+# Media
+#declare -a media=(mpv)
+#for i in "${media[@]}"; do bspc rule -a "$i" desktop='^6' follow=on focus=on state=tiled; done
+
+# Workspace 11 (Settings)
+#declare -a settings=(Lxtask Lxrandr Arandr Xfce4-settings-manager Xfce4-power-manager-settings)
+#for i in "${settings[@]}"; do bspc rule -a "$i" desktop='^11' follow=on focus=on state=floating center=true; done
+
+# Workspace 12 (Torrents)
+#declare -a _torrents=(qBittorrent)
+#for i in "${_torrents[@]}"; do bspc rule -a "$i" desktop='^12' follow=on focus=on state=tiled; done
+
+#endregion
+#region BSPC Rules: Conditional
+
+# Force floating mode
+declare -a floats=(
+  Alafloat Lxappearance Arandr Viewnior Nm-connection-editor Matplotlib
+  Gnome-disks SimpleScreenRecorder Font-manager Gnome-system-monitor Gcolor3
+  flameshot "Blueberry.py" Pavucontrol jamesdsp Nvidia-settings Nitrogen Peazip
+  Xfce4-appearance-settings Xfce4-mouse-settings parsecd Galculator
+  "com.github.joseexposito.touche" XVkbd usbguard-applet-qt
+  instagram-live-streamer Mumble qimgv Peek "Kvantum Manager" Yad "Thunar:*:Attention")
+
+for i in "${floats[@]}"; do
+  bspc rule -a "$i" manage=on state=floating follow=on focus=on center=true
+done
+
+# Force floating mode for LibreWolf save-file popup. Having to use instance
+# 'LibreWolf' as it's that generic, so it may be used in other popups aswell.
+bspc rule -a 'LibreWolf:LibreWolf' state=floating center=true \
+  manage=on follow=on focus=on sticky=on urgent=on
+
+# Force tile windows
+declare -a tiled=()
+for i in "${tiled[@]}"; do
+  bspc rule -a "$i" manage=on state=tiled
+done
+
+# Force full screen windows
+declare -a _fullscreen=()
+for i in "${_fullscreen[@]}"; do
+  bspc rule -a "$i" manage=on state=fullscreen
+done
+
+#endregion
+
+##======== Autostart ===============================================================================
+#region Autostart: System
+
+# Fix the pointer for BSPWM
+xsetroot -cursor_name left_ptr &
+
+# Screensaver and things
+xset -dpms &
+xset s off &
+
+# Polkit agent
+[[ ! $(pidof polkit-gnome-authentication-agent-1) ]] \
+  && /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+# Network Applet
+[[ ! $(pidof nm-applet) ]] \
+  && nm-applet --indicator &
+
+# Polybar
+source $HOME/.config/polybar/launch.sh &
+
+#endregion
+#region Autostart: Generic Loop
+
+# Restart dunst after 2 seconds to give time for previous notifications to stay.
+sleep 2
+pgrep -x "$cmd" | xargs kill && sleep 0.5
+dunst &
+
+dunstify -u normal -t 3000 'window_list "BSPWM"' 'Completed autostarting all apps'
+
+# Restart default apps
+# Picom: Previously used picom -CGb &
+declare -a restart=(xfce4-power-manager "emacs:--daemon" sxhkd "picom:--config $HOME/.config/picom/picom.conf")
+restarted="Executed commands:\n"
+
+for i in "${restart[@]}"; do
+  # Parse command if parameters are passed too.
+  local cmd="${i%:*}"
+
+  # Check if command contains options (spaces), requiring -f option for pgrep. Otherwise, use '-x'.
+  # Kill any and all processes that are found.
+  if [[ $cmd == *\ * ]]; then
+    for pid in $(pgrep -xf "$cmd"); do kill $pid; done && sleep 0.5
+  else
+    for pid in $(pgrep -x "$cmd"); do kill $pid; done && sleep 0.5
+  fi
+
+  # Check if parameters are passed to the command.
+  [[ $i == *:* ]] && local evalc="$cmd ${i#*:}" || local evalc="$cmd"
+  restarted+="\teval \"$evalc\" &\n"
+  eval "$evalc" &
+done
+
+dunstify "Auto-Restart" "$restarted"
+
+#endregion
