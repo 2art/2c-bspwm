@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>Alacritty</icon>
+	<name>Open File In Alacritty</name>
+	<submenu></submenu>
+	<unique-id>1711768775930078-1</unique-id>
+	<command>alacritty --working-directory %d</command>
+	<description>Open directory containing selected file in Alacritty.</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>Alacritty</icon>
+	<name>Open Directory In Alacritty</name>
+	<submenu></submenu>
+	<unique-id>1712005274721262-1</unique-id>
+	<command>alacritty --working-directory %f</command>
+	<description>Open selected directory in Alacritty.</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>

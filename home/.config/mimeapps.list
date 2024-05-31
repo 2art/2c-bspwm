@@ -1,0 +1,15 @@
+[Default Applications]
+text/plain=org.xfce.mousepad.desktop
+text/html=librewolf.desktop
+x-scheme-handler/http=librewolf.desktop
+x-scheme-handler/https=librewolf.desktop
+x-scheme-handler/about=librewolf.desktop
+x-scheme-handler/unknown=librewolf.desktop
+application/pdf=okularApplication_pdf.desktop
+application/epub+zip=okularApplication_epub.desktop
+inode/directory=thunar.desktop
+image/jpeg=viewnior.desktop
+
+[Added Associations]
+text/plain=org.xfce.mousepad.desktop;
+image/jpeg=viewnior.desktop;

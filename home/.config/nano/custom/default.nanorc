@@ -1,0 +1,49 @@
+##
+## DDE modified default.nanorc
+## WORK-IN-PROGRESS
+##
+
+## This is an example of a default syntax.  The default syntax is used for
+## files that do not match any other syntax.
+
+syntax default
+comment "#"
+
+## DDE Disabled (modified further down)
+# Comments.
+#color cyan "^[[:blank:]]*#.*"
+
+# Spaces in front of tabs.
+color ,red " +	+"
+
+## DDE Disabled
+# Nano's name, including version.
+#color brightred "(GNU )?[Nn]ano [1-5]\.[0-9][-.[:alnum:]]*\>"
+
+# Email addresses.
+color magenta "<[[:alnum:].%_+-]+@[[:alnum:].-]+\.[[:alpha:]]{2,}>"
+
+# Bracketed captions in certain config files.
+color brightgreen "^\[[^][]+\]$"
+
+# Control codes.
+color latte "[[:cntrl:]]"
+
+##
+## DDE Additions
+##
+
+color normal,brightcyan start="^.+" end="#.*"
+#color normal brightcyan "^.+" "#.*"
+
+# Comments.
+color cyan "^[[:blank:]]*(//|/\*|;|\<!--|!).*"
+color cyan "^[[:blank:]]*#.*"
+color brightcyan "^[[:blank:]]*##.*"
+
+# URL
+color green "((https?)://)?([[:alnum:]-]+){1,}\.[[:alpha:]]+(/.*)?"
+
+# Authority
+color yellow "[[:alnum:]_-]+@([[:alnum:]-]+){1,}\.[[:alpha:]]+|([0-9]{1,3}){4})"
+

@@ -1,0 +1,390 @@
+##===== 2C Modifications =======================================================
+
+# Automatically indent a newly created line to the same number of tabs and/or
+# spaces as the previous line (or as the next line if the previous line is the
+# beginning of a paragraph).
+set autoindent
+
+# Toggles the constant display of the current line, column and character pos.
+set constantshow
+
+# Set ruler at 81 width: The ruler is slightly wide, and with 81, the left side
+# of the ruler is directly at column 80.
+set guidestripe 81
+
+# Color for the vertical guide rules from 'guidestripe' above. The guide line is
+# 2 pixels wide for some reason, and the right-edge of it is the one that is at
+# the specified 80 width. So it looks annoying when getting close to 80 width,
+# as the few characters before are underneath the guidestripe. Trying to fix
+# this as well as possible with this colorization option
+set stripecolor normal,black
+
+# Set the target width for justifying and automatic hard-wrapping at this number
+# of columns.
+set fill 80
+
+## Use bold text instead of reverse video text.
+set boldtext
+
+## The characters treated as closing brackets when justifying
+## paragraphs.  They cannot contain blank characters.  Only closing
+## punctuation, optionally followed by closing brackets, can end
+## sentences.
+set brackets ""')>]}"
+
+## Do case sensitive searches by default.
+#set casesensitive
+
+## Enable ~/.nano_history for saving and reading search/replace strings.
+set historylog
+
+## The opening and closing brackets that can be found by bracket
+## searches.  They cannot contain blank characters.  The former set must
+## come before the latter set, and both must be in the same order.
+set matchbrackets "(<[{)>]}"
+
+## Enable mouse support, if available for your system.  When enabled,
+## mouse clicks can be used to place the cursor, set the mark (with a
+## double click), and execute shortcuts.  The mouse will work in the X
+## Window System, and on the console when gpm is running.
+set mouse
+
+## Allow multiple file buffers (inserting a file will put it into a
+## separate buffer).  You must have configured with --enable-multibuffer
+## for this to work.
+#set multibuffer
+
+## Don't convert files from DOS/Mac format.
+#set noconvert
+
+## Don't follow symlinks when writing files.
+#set nofollow
+
+## Don't display the helpful shortcut lists at the bottom of the screen.
+#set nohelp
+
+## Don't add newlines to the ends of files.
+#set nonewlines
+
+## Don't wrap text at all.
+#set nowrap
+
+## Set operating directory.  nano will not read or write files outside
+## this directory and its subdirectories.  Also, the current directory
+## is changed to here, so any files are inserted from this dir.  A blank
+## string means the operating directory feature is turned off.
+#set operatingdir ""
+
+## Preserve the XON and XOFF keys (^Q and ^S).
+#set preserve
+
+## The characters treated as closing punctuation when justifying
+## paragraphs.  They cannot contain blank characters.  Only closing
+## punctuation, optionally followed by closing brackets, can end
+## sentences.
+set punct "!.?;"
+
+## Do quick statusbar blanking.  Statusbar messages will disappear after
+## 1 keystroke instead of 26.  Note that "const" overrides this.
+#set quickblank
+
+## The email-quote string, used to justify email-quoted paragraphs.
+## This is an extended regular expression if your system supports them,
+## otherwise a literal string.  Default:
+#set quotestr "^([ 	]*[#:>\|}])+"
+## if you have extended regular expression support, otherwise:
+#set quotestr "> "
+
+## Fix Backspace/Delete confusion problem.
+#set rebinddelete
+
+## Fix numeric keypad key confusion problem.
+#set rebindkeypad
+
+## Do extended regular expression searches by default.
+set regexp
+
+## Make the Home key smarter.  When Home is pressed anywhere but at the
+## very beginning of non-whitespace characters on a line, the cursor
+## will jump to that beginning (either forwards or backwards).  If the
+## cursor is already at that position, it will jump to the true
+## beginning of the line.
+set smarthome
+
+## Use smooth scrolling as the default. (Deprecated? Error: Unknown option)
+#set smooth
+
+## Use this spelling checker instead of the internal one.  This option
+## does not properly have a default value.
+set speller "aspell -x -c"
+
+## Allow nano to be suspended.
+#set suspend
+
+## Use this tab size instead of the default; it must be greater than 0.
+set tabsize 2
+
+## Convert typed tabs to spaces.
+#set tabstospaces
+
+## Show linenumbers
+set linenumbers
+
+## Do backwards searches by default.
+#set backwards
+
+## Disallow file modification; why would you want this in an rcfile?
+#set view
+
+## The two single-column characters used to display the first characters
+## of tabs and spaces.  187 in ISO 8859-1 (0000BB in Unicode) and 183 in
+## ISO-8859-1 (0000B7 in Unicode) seem to be good values for these.
+set whitespace ". "
+
+## Detect word boundaries more accurately by treating punctuation
+## characters as part of a word.
+#set wordbounds
+
+## Save automatically on exit, don't prompt.
+#set tempfile
+
+## Backup files to filename~.
+#set backup
+#set backupdir "/home/dxo/.2c/bspwm/home/.config/nano/backup"
+
+##
+## /usr/share/nano/*.nanorc that are not in the extended set.
+##
+
+include "/usr/share/nano/autoconf.nanorc"
+include "/usr/share/nano/changelog.nanorc"
+include "/usr/share/nano/default.nanorc"
+include "/usr/share/nano/elisp.nanorc"
+include "/usr/share/nano/guile.nanorc"
+include "/usr/share/nano/nanohelp.nanorc"
+include "/usr/share/nano/nftables.nanorc"
+include "/usr/share/nano/objc.nanorc"
+include "/usr/share/nano/texinfo.nanorc"
+
+##
+## Includes added by the automatic script
+##
+
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/apacheconf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/arduino.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/asciidoc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/asm.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/awk.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/c.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/clojure.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/cmake.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/coffeescript.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/colortest.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/conf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/csharp.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/css.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/cython.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/dot.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/dotenv.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/email.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/Dockerfile.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/etc-hosts.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/fish.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/fortran.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gentoo.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/git.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gitcommit.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/glsl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/go.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gradle.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/groff.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/haml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/haskell.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/html.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ical.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ini.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/inputrc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/jade.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/java.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/javascript.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/js.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/json.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/keymap.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/kickstart.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/kotlin.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ledger.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/lisp.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/lua.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/makefile.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/man.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/markdown.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/mpdconf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/mutt.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nanorc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nginx.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nmap.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ocaml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/patch.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/peg.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/perl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/perl6.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/php.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pkg-config.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pkgbuild.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/po.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pov.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/privoxy.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/puppet.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pug.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/python.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/reST.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/rpmspec.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ruby.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/rust.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/scala.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sed.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sh.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sls.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sql.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/svn.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/swift.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/systemd.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/tcl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/tex.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/vala.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/verilog.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/vi.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/xml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/xresources.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/yaml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/yum.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/zsh.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/Brewfile.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/Dockerfile.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/Rnw.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/apacheconf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/arduino.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/asciidoc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/asm.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/awk.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/batch.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/beancount.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/c.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/clojure.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/cmake.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/coffeescript.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/colortest.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/conf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/conky.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/creole.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/csh.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/csharp.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/css.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/csv.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/cython.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/d.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/dot.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/dotenv.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/elixir.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/email.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/erb.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/etc-hosts.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/expect.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/fish.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/fortran.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/fsharp.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gemini.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/genie.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gentoo.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/git.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gitcommit.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/glsl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/go.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/godot.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gophermap.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/gradle.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/groff.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/haml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/haskell.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/hcl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/html.j2.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/html.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/i3.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ical.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ini.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/inputrc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/jade.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/java.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/jrnl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/js.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/json.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/julia.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/keymap.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/kickstart.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/kotlin.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ledger.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/lisp.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/lua.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/m3u.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/makefile.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/man.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/markdown.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/moonscript.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/mpdconf.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/mutt.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nanorc.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nginx.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/nmap.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ocaml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/octave.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/patch.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/peg.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/perl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/perl6.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/php.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pkg-config.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pkgbuild.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/po.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pov.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/powershell.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/privoxy.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/prolog.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/properties.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/pug.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/puppet.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/python.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/reST.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/rego.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/rpmspec.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ruby.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/rust.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/scala.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sed.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sh.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sieve.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sls.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/solidity.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sparql.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/sql.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/subrip.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/svn.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/swift.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/systemd.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/tcl.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/tex.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/toml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/ts.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/twig.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/v.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/vala.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/verilog.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/vi.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/x11basic.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/xml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/xresources.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/yaml.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/yum.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/zeek.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/zig.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/zsh.nanorc"
+include "/home/dxo/.2c/bspwm/home/.config/nano/syntax/zshrc.nanorc"
