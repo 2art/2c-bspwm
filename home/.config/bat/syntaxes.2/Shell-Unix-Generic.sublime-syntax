@@ -1,0 +1,13 @@
+%YAML 1.2
+---
+name: Shell-Unix-Generic
+scope: source.shell
+version: 2
+hidden: true
+
+extends: Packages/ShellScript/Bash.sublime-syntax
+
+contexts:
+  main:
+    # skip shebang
+    - include: statements

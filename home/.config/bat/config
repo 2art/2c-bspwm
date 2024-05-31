@@ -1,0 +1,82 @@
+# -------- Output Styling Options ------------------------------------------------------------------ Options:
+#
+#   --theme=                  Theme to use in output - see 'bat --list-themes' for options.
+#   --style=                  Style options for output, separated by commas. Possible values:
+#                             *default*, full, auto, plain, changes, header, header-filename,
+#                             header-filesize, grid, rule, numbers, snip
+#   --italic-text=            When to use ANSI sequences for italic text in the output. Possible
+#                             values: always, *never*.
+#   --tabs=                   Tab width for output. Use 0 to pass tabs through directly.
+#   -f|--force-colorization:  Force colorization even when piped.
+#   -n|--number:              Show line numbers. Alternative to --style=numbers.
+#   -p|--plain:               (optional) Disable decorations. Alternative to --style=plain.
+#   --wrap=                   Configure wrapping. Possible values: *auto*, never, character. Use
+#                             'never' by default, which disables wrapping altogether, as this gives
+#                             the clearest output so far. Use < and > to fast scroll left/right.
+#                             Alternatively, use 'character' for nice wrapped output. This option
+#                             will wrap based on the value of --terminal-width parameter.
+#   --terminal-width=         Width of the terminal for wrapping. Only effective when using the
+#                             'auto' or 'character' wrapping modes in the --wrap parameter.
+#
+# --------------------------------------------------------------------------------------------------
+--theme=DarkNeon
+--style=changes,header,header-filename,header-filesize
+--italic-text=always
+--tabs=2
+--force-colorization
+--number
+#--plain
+--wrap=never
+--terminal-width=120
+
+# -------- Paging ----------------------------------------------------------------------------------
+#
+#   --paging=                 Specify when to use the pager. Possible values: *auto*, never, always.
+#   --pager=                  Specify which pager to use. Can include parameters to be passed. Note
+#                             that this parameter is ignored when using the 'man' command, as the
+#                             MAN_PAGER environment variable specified in .zprofile overrides it.
+#                             However, this is used when calling 'bat' directly.
+#
+# Use 'most' for automatic colorization. This is preferable, as it enables mouse selection (for
+# copying), and the colors of the output are pretty good and easy to read. Use the -s option to
+# enable 'squeeze-mode', which will replace multiple blank lines with a single blank line.
+#
+# Alternatively, use 'less'; There are advantages and disadvantages to it. Main downside is that
+# mouse selection for copying is not possible. One upside on the other hand is that the colors of
+# the output are more customizable (with the -D options). Note that using 'less' requires a few
+# things to be configured and enabled (see ~csrc/.zprofile):
+#
+#   - export LESS must be specified and must at least include the option '--use-colors'.
+#   - export MANROFFOPT must be specified and must at least include options '-P -c'.
+#   - The 'man()' override function in ~comz/05-output.zsh should be used. This will set the
+#     LESS_TERMCAP_* environment variables, which specify some of the colorization to be used.
+#     I'm not absolutely certain if this is required, but no harm in keeping it enabled.
+#
+# Example --pager value to use 'less': --pager='less -DNc -Dd+g -Du+m -DSwB -DBc -DP+r -DN+r -DsC'
+# See 'man less' for values to use with the -D|--color option to customize output.
+#
+# TODO: Look into more alternatives to 'less' (e.g. 'pp' IIRC?)
+#
+# --------------------------------------------------------------------------------------------------
+--paging=auto
+--pager="most -s"
+
+# -------- Syntax Mappings -------------------------------------------------------------------------
+# Syntax mappings: map a certain filename pattern to a language.
+#
+# Options:
+#
+#   --map-syntax=             Maps certain filenames to a specific language (to see supported
+#                             languages, see: 'bat --list-languages'.) Value must be a string with
+#                             the format: 'glob:language', where:
+#                                   glob:  Filename match; For example, '*.zsh' to match all files
+#                                          with extension '.zsh', and '.ignore' to only match files
+#                                          named '.ignore'.
+#                               language:  Language to map the files to (see 'bat --list-languages'.)
+#                             Example 1: use the C++ syntax for Arduino .ino files
+#                               --map-syntax "*.ino:C++"
+#                             Example 2: Use '.gitignore'-style highlighting for '.ignore' files
+#                               --map-syntax ".ignore:Git Ignore"
+--map-syntax ".zlog*:zsh"
+--map-syntax ".zsh*:zsh"
+--map-syntax ".zprofile:zsh"
