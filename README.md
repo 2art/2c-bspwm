@@ -16,6 +16,14 @@ This repository contains my ([2art](mailto:2art@pm.me)) personal desktop configu
 
 Configs and default apps that are used are updated as this project develops; For example, terminal editor (nvim) config is not included yet, although it may get it's own repository instead.
 
+## Packages to Install
+
+- Theme: [xfce-simple-dark](https://github.com/simonkrauter/Xfce-Simple-Dark)
+- Icons: [candy-icons-git](https://github.com/EliverLara/candy-icons)
+- Fonts: Mainly 'EnvyCodeR Nerd Font'
+
+  - Clone [NerdFonts](https://github.com/ryanoasis/nerd-fonts) with `git clone --depth 1 https://github.com/ryanoasis/nerd-fonts` and follow the installation instructions in `README.md`.
+
 # Git Branching Model
 
 The model detailed [here](https://nvie.com/posts/a-successful-git-branching-model) is somewhat followed in all repos. Below are general rules for branching and merges, for all repositories.
