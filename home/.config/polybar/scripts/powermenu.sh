@@ -54,7 +54,9 @@ case $chosen in
     fi
         ;;
     $lock)
-    if [[ -f /usr/bin/i3lock ]]; then
+    if [[ -f /home/dxo/.config/bspwm/scripts/i3lock-fancy-dualmon ]];
+      ./home/dxo/.config/bspwm/scripts/i3lock-fancy-dualmon
+    elif [[ -f /usr/bin/i3lock ]]; then
       i3lock
     elif [[ -f /usr/bin/betterlockscreen ]]; then
       betterlockscreen -l

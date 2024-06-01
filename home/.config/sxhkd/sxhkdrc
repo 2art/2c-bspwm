@@ -14,7 +14,7 @@ super + 0
   ~/.config/rofi/powermenu.sh
 # Lock the window using modified i3lock-fancy.sh in ~c/bin.
 super + 9
-  ~/.src/repos/2c-usercfg/home/.config/bspwm/scripts/i3lock-fancy-dualmon
+  /home/dxo/.config/bspwm/scripts/i3lock-fancy-dualmon
 
 #endregion
 
