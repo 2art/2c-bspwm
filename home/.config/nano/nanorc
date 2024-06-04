@@ -8,9 +8,9 @@ set autoindent
 # Toggles the constant display of the current line, column and character pos.
 set constantshow
 
-# Set ruler at 81 width: The ruler is slightly wide, and with 81, the left side
-# of the ruler is directly at column 80.
-set guidestripe 81
+# Set ruler at 101 width: The ruler is slightly wide, and with 81, the left side
+# of the ruler is directly at column 100.
+set guidestripe 101
 
 # Color for the vertical guide rules from 'guidestripe' above. The guide line is
 # 2 pixels wide for some reason, and the right-edge of it is the one that is at
@@ -21,7 +21,7 @@ set stripecolor normal,black
 
 # Set the target width for justifying and automatic hard-wrapping at this number
 # of columns.
-set fill 80
+set fill 100
 
 ## Use bold text instead of reverse video text.
 set boldtext
