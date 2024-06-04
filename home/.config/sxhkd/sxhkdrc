@@ -50,6 +50,9 @@ super + ctrl + {_,alt} + p
 # terminal emulator: alacritty
 super + Return
   alacritty
+# terminal emulator: alacritty
+ctrl + alt + t
+  alacritty
 # terminal emulator: xfce4-terminal
 super + alt + Return
   xfce4-terminal
