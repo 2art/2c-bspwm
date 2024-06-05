@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-##==================================================================================================
+##==============================================================================
 ##== 2C BSPWM Environment (Default)
 ##
 ## Includes configs for Rofi and Polybar, and keybindings for SXHKD.
@@ -8,7 +8,7 @@
 ## TODO: Explanation about the selector logic will be here later. An in-depth notecategory about all
 ##       of it will be created during that, so see it for more information (about initially unclear
 ##       things in the manpages).
-##==================================================================================================
+##==============================================================================
 
 ##======== Monitor & Wallpaper Setup ===============================================================
 #region Monitor & Wallpaper Setup
