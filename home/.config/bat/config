@@ -19,11 +19,11 @@
 #                             'auto' or 'character' wrapping modes in the --wrap parameter.
 #
 # --------------------------------------------------------------------------------------------------
---theme=DarkNeon
+--theme="Monokai Extended Origin"
 --style=changes,header,header-filename,header-filesize
 --italic-text=always
 --tabs=2
---force-colorization
+#--force-colorization
 --number
 #--plain
 --wrap=never
@@ -59,7 +59,7 @@
 #
 # --------------------------------------------------------------------------------------------------
 --paging=auto
---pager="most -s"
+--pager="less"
 
 # -------- Syntax Mappings -------------------------------------------------------------------------
 # Syntax mappings: map a certain filename pattern to a language.
@@ -77,6 +77,6 @@
 #                               --map-syntax "*.ino:C++"
 #                             Example 2: Use '.gitignore'-style highlighting for '.ignore' files
 #                               --map-syntax ".ignore:Git Ignore"
---map-syntax ".zlog*:zsh"
---map-syntax ".zsh*:zsh"
---map-syntax ".zprofile:zsh"
+#--map-syntax ".zlog*:zsh"
+#--map-syntax ".zsh*:zsh"
+#--map-syntax ".zprofile:zsh"
