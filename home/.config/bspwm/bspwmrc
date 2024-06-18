@@ -160,7 +160,7 @@ declare -a floats=(
   flameshot "Blueberry.py" Pavucontrol jamesdsp Nvidia-settings Nitrogen Peazip
   Xfce4-appearance-settings Xfce4-mouse-settings parsecd Galculator
   "com.github.joseexposito.touche" XVkbd usbguard-applet-qt
-  instagram-live-streamer Mumble qimgv Peek "Kvantum Manager" Yad "Thunar:*:Attention")
+  instagram-live-streamer Mumble qimgv Peek "Kvantum Manager" "Thunar:*:Attention")
 
 for i in "${floats[@]}"; do
   bspc rule -a "$i" manage=on state=floating follow=on focus=on center=true
@@ -182,6 +182,9 @@ declare -a _fullscreen=()
 for i in "${_fullscreen[@]}"; do
   bspc rule -a "$i" manage=on state=fullscreen
 done
+
+# Set YAD preview window fullscreen (cplprevloop, etc.)
+bspc rule -a Yad:*:YAD state=fullscreen follow=on focus=on manage=on
 
 #endregion
 
