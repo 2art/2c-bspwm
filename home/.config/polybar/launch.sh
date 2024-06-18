@@ -30,9 +30,28 @@ else
 fi
 
 # Terminate already running bar instances.
-killall -q polybar
-sleep 1
-#while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+# Terminate all Polybar processes by sending SIGKILL to each PID. After killing
+# all Polybar processes, pgrep for any remanining Polybar instances and try
+# sending other signals. Lastly, after trying everything, `pgrep` Polybar
+# instances that are still running and wait until they're gone.
+#
+# Previous code for killing Polybar instances: `killall -q polybar`
+# Above `killall` call sometimes leaves a frozen Polybar instance running for no
+# clear reason why. SIGKILL (9) seems to always kill Polybar.
+#
+# `pgrep` Polybar instances that are running and try kill them with KILL(9)
+# signal. If this doesn't work, try TERM(15), HUP(1) and QUIT(2) signals. Note
+# that the $signals array indexes are off by +1.
+for signal in KILL TERM HUP QUIT; do
+	pgrep -u $UID -x polybar > >(
+		while read pid; do kill -s $signal $pid; done
+	) && sleep 0.5 || break
+done
+
+# Final `pgrep` for remaining Polybar instances, which should be terminating any
+# second now; Wait in a while-loop until no Polybar processes are found.
+while pgrep -u $UID -x polybar &>/dev/null; do sleep 0.5; done
 
 # Path to the used configuration file.
 cfg="$HOME/.config/polybar/docky/config.ini"
